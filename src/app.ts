@@ -17,13 +17,11 @@ const start = async () => {
   await app.register(cors);
   await app.register(routes);
 
-  try {
-    await app.listen({ port: port, host: host });
-  } catch (err) {
-    console.log("erro");
-
-    process.exit(1);
+  await fastify.listen({host: host, port: port }, function (err, address) {
+  if (err) {
+    fastify.log.error(err)
+    process.exit(1)
   }
-};
+})
 
 start();
