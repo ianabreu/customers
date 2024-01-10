@@ -15,7 +15,7 @@ const start = async () => {
   await app.register(routes);
 
   try {
-    await app.listen();
+    await app.listen({ port: 3333 });
   } catch (err) {
     console.log("erro");
 
