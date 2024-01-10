@@ -1,3 +1,6 @@
+const port = process.env.PORT || 3000;
+const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
+
 import fastify from "fastify";
 
 import cors from "@fastify/cors";
@@ -15,7 +18,7 @@ const start = async () => {
   await app.register(routes);
 
   try {
-    await app.listen({ port: 3333, host: `0.0.0.0` });
+    await app.listen({ port: port, host: host });
   } catch (err) {
     console.log("erro");
 
